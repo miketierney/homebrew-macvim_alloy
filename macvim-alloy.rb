@@ -4,12 +4,12 @@ class MacvimAlloy < Formula
   homepage 'https://github.com/alloy/macvim/wiki'
   head 'https://github.com/alloy/macvim.git', :branch => 'split-browser'
 
-  options "custom-icons", "Try to generate custom document icons."
-  options "override-system-vim", "Override system vim"
-  options "with-cscope", "Build with Cscope support"
-  options "with-lua", "Build with Lua scripting support"
-  options "with-envycoder", "Build with Envy Code R Bold font."
-  options "enable-clipboard", "Enable System clipboard handling in the terminal"
+  option "custom-icons", "Try to generate custom document icons."
+  option "override-system-vim", "Override system vim"
+  option "with-cscope", "Build with Cscope support"
+  option "with-lua", "Build with Lua scripting support"
+  option "with-envycoder", "Build with Envy Code R Bold font."
+  option "enable-clipboard", "Enable System clipboard handling in the terminal"
 
   depends_on 'cscope' if build.include? 'with-cscope'
   depends_on 'lua' if build.include? 'with-lua'
