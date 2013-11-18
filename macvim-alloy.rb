@@ -6,7 +6,6 @@ class MacvimAlloy < Formula
   homepage 'https://github.com/alloy/macvim/wiki'
   head 'https://github.com/alloy/macvim.git', :branch => 'split-browser'
 
-  option "custom-icons", "Try to generate custom document icons."
   option "override-system-vim", "Override system vim"
 
   depends_on :xcode
@@ -118,17 +117,6 @@ class MacvimAlloy < Formula
         inreplace 'src/auto/config.h', "/* # undef PY_NO_RTLD_GLOBAL */", "#define PY_NO_RTLD_GLOBAL 1"
         inreplace 'src/auto/config.h', "/* # undef PY3_NO_RTLD_GLOBAL */", "#define PY3_NO_RTLD_GLOBAL 1"
       end
-    end
-
-    if build.include? "custom-icons"
-      # Get the custom font used by the icons
-      cd 'src/MacVim/icons' do
-        system "make getenvy"
-      end
-    else
-      # Building custom icons fails for many users, so off by default.
-      inreplace "src/MacVim/icons/Makefile", "$(MAKE) -C makeicns", ""
-      inreplace "src/MacVim/icon/make_icons.py", "dont_create = False", "dont_create = True"
     end
 
     system "make"
