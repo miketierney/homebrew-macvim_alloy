@@ -1,6 +1,7 @@
 require 'formula'
 
 # Reference: https://github.com/b4winckler/macvim/wiki/building
+# Based largely off of: https://github.com/mxcl/homebrew/blob/master/Library/Formula/macvim.rb
 class MacvimAlloy < Formula
   homepage 'https://github.com/alloy/macvim/wiki'
   head 'https://github.com/alloy/macvim.git', :branch => 'split-browser'
